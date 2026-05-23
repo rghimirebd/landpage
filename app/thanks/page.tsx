@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import ThankYouContent from "../components/ThankYouContent";
 
 export const metadata: Metadata = {
-  title: "Thank You | Rabindra Digital",
+  title: "Thanks | Rabindra Digital",
   description: "Watch the next-step video before your consultation."
 };
 
-export default function ThankYouPage() {
+export default function ThanksPage() {
   return <ThankYouContent />;
 }

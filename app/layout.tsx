@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Manrope, Sora } from "next/font/google";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -7,28 +7,27 @@ const manrope = Manrope({
   variable: "--font-manrope"
 });
 
-const cormorant = Cormorant_Garamond({
+const sora = Sora({
   subsets: ["latin"],
-  variable: "--font-cormorant",
-  weight: ["500", "600", "700"]
+  variable: "--font-sora"
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://example.com"),
-  title: "Free Digital Marketing Consultation",
+  metadataBase: new URL("https://rabindradigital.com"),
+  title: "Rabindra Digital | Free Consultation for Business Owners in Nepal",
   description:
-    "Book a free 1-on-1 digital marketing consultation and get a customized marketing plan for your business.",
+    "Get a free PDF guide and a free 1:1 digital marketing consultation designed for Nepal-based business owners who want more leads, customers, and sales.",
   openGraph: {
-    title: "Free Digital Marketing Consultation",
+    title: "Rabindra Digital | Free Consultation for Business Owners in Nepal",
     description:
-      "Book a free 1-on-1 digital marketing consultation and get a customized marketing plan for your business.",
+      "A premium landing page experience for Nepal-based business owners who want clear digital marketing direction and more customers.",
     type: "website"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Digital Marketing Consultation",
+    title: "Rabindra Digital | Free Consultation for Business Owners in Nepal",
     description:
-      "Book a free 1-on-1 digital marketing consultation and get a customized marketing plan for your business."
+      "Get a free PDF guide and a free 1:1 digital marketing consultation designed for Nepal-based business owners."
   }
 };
 
@@ -39,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${manrope.variable} ${cormorant.variable} font-sans antialiased`}>
+      <body className={`${manrope.variable} ${sora.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>

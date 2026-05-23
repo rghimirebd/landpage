@@ -9,17 +9,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        sand: "#f8f4ec",
-        ink: "#1c1917",
-        bronze: "#b7791f",
-        clay: "#8b5e34"
+        sand: "#f7f1e7",
+        ink: "#171717",
+        bronze: "#d4a340",
+        clay: "#6b6257",
+        "brand-charcoal": "#121212",
+        "brand-gold": "#e0b14c",
+        "brand-gold-soft": "#f1c96f",
+        "brand-cream": "#f6eee2",
+        "brand-muted": "#7d7368"
       },
       boxShadow: {
-        soft: "0 24px 80px rgba(28, 25, 23, 0.08)"
+        soft: "0 24px 80px rgba(18, 18, 18, 0.08)"
       },
       fontFamily: {
         sans: ["var(--font-manrope)", "sans-serif"],
-        display: ["var(--font-cormorant)", "serif"]
+        display: ["var(--font-sora)", "sans-serif"]
       }
     }
   },
