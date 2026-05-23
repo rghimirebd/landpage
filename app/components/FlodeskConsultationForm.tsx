@@ -1,10 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import Script from "next/script";
 
 const FLODESK_ROOT_CLASS = "ff-6a115b2366673b0f9f1163dc";
-const FLODESK_REDIRECT_DELAY_MS = 1500;
 const FLODESK_FONT_PRELOAD = "https://assets.flodesk.com/flodesk-sans.css";
 
 const flodeskStyles = `
@@ -898,37 +897,8 @@ function ensureFlodeskAssets() {
 }
 
 export default function FlodeskConsultationForm() {
-  const redirectTimeoutRef = useRef<number | null>(null);
-
   useEffect(() => {
     ensureFlodeskAssets();
-
-    const root = document.querySelector<HTMLElement>(`.${FLODESK_ROOT_CLASS}[data-ff-el="root"]`);
-    if (!root) return;
-
-    const handleSuccess = () => {
-      if (root.dataset.ffStage !== "success" || redirectTimeoutRef.current !== null) return;
-
-      redirectTimeoutRef.current = window.setTimeout(() => {
-        window.location.assign("/thanks");
-      }, FLODESK_REDIRECT_DELAY_MS);
-    };
-
-    handleSuccess();
-
-    const observer = new MutationObserver(handleSuccess);
-    observer.observe(root, {
-      attributes: true,
-      attributeFilter: ["data-ff-stage"]
-    });
-
-    return () => {
-      observer.disconnect();
-
-      if (redirectTimeoutRef.current !== null) {
-        window.clearTimeout(redirectTimeoutRef.current);
-      }
-    };
   }, []);
 
   return (
@@ -980,7 +950,7 @@ export default function FlodeskConsultationForm() {
       >
         <div
           data-ff-el="config"
-          data-ff-config="eyJ0cmlnZ2VyIjp7Im1vZGUiOiJpbW1lZGlhdGVseSIsInZhbHVlIjowfSwib25TdWNjZXNzIjp7Im1vZGUiOiJtZXNzYWdlIiwibWVzc2FnZSI6IjxkaXYgZGF0YS1wYXJhZ3JhcGg9XCJ0cnVlXCI+VGhhbmsgeW91IGZvciBzdWJzY3JpYmluZyE8L2Rpdj4iLCJyZWRpcmVjdFVybCI6IiJ9LCJjb2kiOmZhbHNlLCJzaG93Rm9yUmV0dXJuVmlzaXRvcnMiOnRydWUsIm5vdGlmaWNhdGlvbiI6ZmFsc2UsImdkcHIiOnsiYWNjZXB0c01hcmtldGluZyI6ZmFsc2UsInByaXZhY3lQb2xpY3kiOnsiZW5hYmxlZCI6ZmFsc2UsIm1hbmRhdG9yeSI6ZmFsc2V9fSwidHJhY2tpbmdDb25maWciOnsibWV0YVBpeGVsSWQiOiIiLCJjb29raWVCYW5uZXJFbmFibGVkIjpmYWxzZSwiZ29vZ2xlQW5hbHl0aWNzSWQiOiIifX0="
+          data-ff-config="eyJ0cmlnZ2VyIjp7Im1vZGUiOiJpbW1lZGlhdGVseSIsInZhbHVlIjowfSwib25TdWNjZXNzIjp7Im1vZGUiOiJyZWRpcmVjdCIsIm1lc3NhZ2UiOiI8ZGl2IGRhdGEtcGFyYWdyYXBoPVwidHJ1ZVwiPkdvdCBpdCEgQ2hlY2sgeW91ciBpbmJveCBmb3IgYW4gZW1haWwgdG8gY29uZmlybSB5b3VyIHN1YnNjcmlwdGlvbi48L2Rpdj4iLCJyZWRpcmVjdFVybCI6Imh0dHBzOi8vY29uc3VsdGF0aW9uLnJhYmluZHJhLWdoaW1pcmUuY29tLm5wL3RoYW5rcyJ9LCJjb2kiOmZhbHNlLCJzaG93Rm9yUmV0dXJuVmlzaXRvcnMiOnRydWUsIm5vdGlmaWNhdGlvbiI6ZmFsc2UsImdkcHIiOnsiYWNjZXB0c01hcmtldGluZyI6ZmFsc2UsInByaXZhY3lQb2xpY3kiOnsiZW5hYmxlZCI6ZmFsc2UsIm1hbmRhdG9yeSI6ZmFsc2V9fSwidHJhY2tpbmdDb25maWciOnsibWV0YVBpeGVsSWQiOiIiLCJjb29raWVCYW5uZXJFbmFibGVkIjpmYWxzZSwiZ29vZ2xlQW5hbHl0aWNzSWQiOiIifX0="
           style={{ display: "none" }}
         />
         <div className="ff-6a115b2366673b0f9f1163dc__container">
