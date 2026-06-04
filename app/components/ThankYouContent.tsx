@@ -42,7 +42,7 @@ export default function ThankYouContent() {
           <span className="inline-flex rounded-full border border-brand-gold/30 bg-brand-gold/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#8b651b]">
             Next Step
           </span>
-          <h1 className="mt-6 max-w-3xl font-display text-4xl leading-tight sm:text-5xl lg:text-6xl">
+          <h1 className="mt-6 max-w-3xl font-display text-3xl leading-tight sm:text-4xl lg:text-5xl">
             {siteContent.thankYouHeading}
           </h1>
           <p className="mt-4 max-w-2xl text-base leading-7 text-brand-charcoal/78 sm:text-lg">

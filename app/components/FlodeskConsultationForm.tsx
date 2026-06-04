@@ -3,8 +3,10 @@
 import { useEffect } from "react";
 import Script from "next/script";
 
-const FLODESK_ROOT_CLASS = "ff-6a115b2366673b0f9f1163dc";
+const FLODESK_ROOT_CLASS = "ff-6a20243e33e01d1f11e96740";
+const FLODESK_FORM_ID = "6a20243e33e01d1f11e96740";
 const FLODESK_FONT_PRELOAD = "https://assets.flodesk.com/flodesk-sans.css";
+const LEGACY_FLODESK_ROOT_CLASS = "ff-6a115b2366673b0f9f1163dc";
 
 const flodeskStyles = `
   [data-ff-el="root"].ff-6a115b2366673b0f9f1163dc *,
@@ -870,7 +872,7 @@ const flodeskStyles = `
     color: inherit;
     text-decoration: underline;
   }
-`;
+`.replaceAll(LEGACY_FLODESK_ROOT_CLASS, FLODESK_ROOT_CLASS);
 
 declare global {
   interface Window {
@@ -934,14 +936,14 @@ export default function FlodeskConsultationForm() {
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `window.fd('form:handle', {
-    formId: '6a115b2366673b0f9f1163dc',
-    rootEl: '.ff-6a115b2366673b0f9f1163dc',
+    formId: '${FLODESK_FORM_ID}',
+    rootEl: '.${FLODESK_ROOT_CLASS}',
   });`
         }}
       />
 
       <div
-        className="ff-6a115b2366673b0f9f1163dc"
+        className={FLODESK_ROOT_CLASS}
         data-ff-el="root"
         data-ff-version="3"
         data-ff-type="inline"
@@ -953,20 +955,20 @@ export default function FlodeskConsultationForm() {
           data-ff-config="eyJ0cmlnZ2VyIjp7Im1vZGUiOiJpbW1lZGlhdGVseSIsInZhbHVlIjowfSwib25TdWNjZXNzIjp7Im1vZGUiOiJyZWRpcmVjdCIsIm1lc3NhZ2UiOiI8ZGl2IGRhdGEtcGFyYWdyYXBoPVwidHJ1ZVwiPkdvdCBpdCEgQ2hlY2sgeW91ciBpbmJveCBmb3IgYW4gZW1haWwgdG8gY29uZmlybSB5b3VyIHN1YnNjcmlwdGlvbi48L2Rpdj4iLCJyZWRpcmVjdFVybCI6Imh0dHBzOi8vY29uc3VsdGF0aW9uLnJhYmluZHJhLWdoaW1pcmUuY29tLm5wL3RoYW5rcyJ9LCJjb2kiOmZhbHNlLCJzaG93Rm9yUmV0dXJuVmlzaXRvcnMiOnRydWUsIm5vdGlmaWNhdGlvbiI6ZmFsc2UsImdkcHIiOnsiYWNjZXB0c01hcmtldGluZyI6ZmFsc2UsInByaXZhY3lQb2xpY3kiOnsiZW5hYmxlZCI6ZmFsc2UsIm1hbmRhdG9yeSI6ZmFsc2V9fSwidHJhY2tpbmdDb25maWciOnsibWV0YVBpeGVsSWQiOiIiLCJjb29raWVCYW5uZXJFbmFibGVkIjpmYWxzZSwiZ29vZ2xlQW5hbHl0aWNzSWQiOiIifX0="
           style={{ display: "none" }}
         />
-        <div className="ff-6a115b2366673b0f9f1163dc__container">
-          <div className="ff-6a115b2366673b0f9f1163dc__wrapper">
+        <div className={`${FLODESK_ROOT_CLASS}__container`}>
+          <div className={`${FLODESK_ROOT_CLASS}__wrapper`}>
             <form
-              className="ff-6a115b2366673b0f9f1163dc__form"
-              action="https://form.flodesk.com/forms/6a115b2366673b0f9f1163dc/submit"
+              className={`${FLODESK_ROOT_CLASS}__form`}
+              action={`https://form.flodesk.com/forms/${FLODESK_FORM_ID}/submit`}
               method="post"
               data-ff-el="form"
             >
-              <div className="ff-6a115b2366673b0f9f1163dc__title">
+              <div className={`${FLODESK_ROOT_CLASS}__title`}>
                 <div style={{ wordBreak: "break-word" }}>
                   <div data-paragraph="true">Free One-on-One Consultation Call</div>
                 </div>
               </div>
-              <div className="ff-6a115b2366673b0f9f1163dc__subtitle">
+              <div className={`${FLODESK_ROOT_CLASS}__subtitle`}>
                 <div style={{ wordBreak: "break-word" }}>
                   <div data-paragraph="true">
                     Book a FREE 1:1 Digital Marketing Consultation Call. &nbsp;
@@ -976,12 +978,12 @@ export default function FlodeskConsultationForm() {
                   </div>
                 </div>
               </div>
-              <div className="ff-6a115b2366673b0f9f1163dc__content fd-form-content" data-ff-el="content">
-                <div className="ff-6a115b2366673b0f9f1163dc__fields" data-ff-el="fields">
-                  <div className="ff-6a115b2366673b0f9f1163dc__field fd-form-group">
+              <div className={`${FLODESK_ROOT_CLASS}__content fd-form-content`} data-ff-el="content">
+                <div className={`${FLODESK_ROOT_CLASS}__fields`} data-ff-el="fields">
+                  <div className={`${FLODESK_ROOT_CLASS}__field fd-form-group`}>
                     <input
-                      id="ff-6a115b2366673b0f9f1163dc-firstName"
-                      className="ff-6a115b2366673b0f9f1163dc__control fd-form-control"
+                      id={`ff-${FLODESK_FORM_ID}-firstName`}
+                      className={`${FLODESK_ROOT_CLASS}__control fd-form-control`}
                       type="text"
                       maxLength={255}
                       name="firstName"
@@ -990,8 +992,8 @@ export default function FlodeskConsultationForm() {
                       required
                     />
                     <label
-                      htmlFor="ff-6a115b2366673b0f9f1163dc-firstName"
-                      className="ff-6a115b2366673b0f9f1163dc__label fd-form-label"
+                      htmlFor={`ff-${FLODESK_FORM_ID}-firstName`}
+                      className={`${FLODESK_ROOT_CLASS}__label fd-form-label`}
                     >
                       <div>
                         <div>First name</div>
@@ -999,10 +1001,10 @@ export default function FlodeskConsultationForm() {
                     </label>
                   </div>
 
-                  <div className="ff-6a115b2366673b0f9f1163dc__field fd-form-group">
+                  <div className={`${FLODESK_ROOT_CLASS}__field fd-form-group`}>
                     <input
-                      id="ff-6a115b2366673b0f9f1163dc-email"
-                      className="ff-6a115b2366673b0f9f1163dc__control fd-form-control"
+                      id={`ff-${FLODESK_FORM_ID}-email`}
+                      className={`${FLODESK_ROOT_CLASS}__control fd-form-control`}
                       type="text"
                       maxLength={255}
                       name="email"
@@ -1011,8 +1013,8 @@ export default function FlodeskConsultationForm() {
                       required
                     />
                     <label
-                      htmlFor="ff-6a115b2366673b0f9f1163dc-email"
-                      className="ff-6a115b2366673b0f9f1163dc__label fd-form-label"
+                      htmlFor={`ff-${FLODESK_FORM_ID}-email`}
+                      className={`${FLODESK_ROOT_CLASS}__label fd-form-label`}
                     >
                       <div>
                         <div>Email address</div>
@@ -1020,41 +1022,41 @@ export default function FlodeskConsultationForm() {
                     </label>
                   </div>
 
-                  <div className="ff-6a115b2366673b0f9f1163dc__field fd-form-group">
+                  <div className={`${FLODESK_ROOT_CLASS}__field fd-form-group`}>
                     <input
-                      id="ff-6a115b2366673b0f9f1163dc-pxCB4w7Jgp"
-                      className="ff-6a115b2366673b0f9f1163dc__control fd-form-control"
+                      id={`ff-${FLODESK_FORM_ID}-bplvHvCkpV`}
+                      className={`${FLODESK_ROOT_CLASS}__control fd-form-control`}
                       type="text"
                       maxLength={255}
                       name="fields.whatsappNumber"
-                      placeholder="WhatsApp Number"
+                      placeholder="WhatsApp number"
                       data-ff-tab="fields.whatsappNumber:email:fields.businessName"
                       required
                     />
                     <label
-                      htmlFor="ff-6a115b2366673b0f9f1163dc-pxCB4w7Jgp"
-                      className="ff-6a115b2366673b0f9f1163dc__label fd-form-label"
+                      htmlFor={`ff-${FLODESK_FORM_ID}-bplvHvCkpV`}
+                      className={`${FLODESK_ROOT_CLASS}__label fd-form-label`}
                     >
                       <div>
-                        <div>WhatsApp Number</div>
+                        <div>WhatsApp number</div>
                       </div>
                     </label>
                   </div>
 
-                  <div className="ff-6a115b2366673b0f9f1163dc__field fd-form-group">
+                  <div className={`${FLODESK_ROOT_CLASS}__field fd-form-group`}>
                     <input
-                      id="ff-6a115b2366673b0f9f1163dc-vnCs9XXZ30"
-                      className="ff-6a115b2366673b0f9f1163dc__control fd-form-control"
+                      id={`ff-${FLODESK_FORM_ID}-QK3DClA3Pq`}
+                      className={`${FLODESK_ROOT_CLASS}__control fd-form-control`}
                       type="text"
                       maxLength={255}
                       name="fields.businessName"
                       placeholder="Business Name"
-                      data-ff-tab="fields.businessName:fields.whatsappNumber:fields.websiteFacebookPageLink"
+                      data-ff-tab="fields.businessName:fields.whatsappNumber:fields.websiteOrFacebook"
                       required
                     />
                     <label
-                      htmlFor="ff-6a115b2366673b0f9f1163dc-vnCs9XXZ30"
-                      className="ff-6a115b2366673b0f9f1163dc__label fd-form-label"
+                      htmlFor={`ff-${FLODESK_FORM_ID}-QK3DClA3Pq`}
+                      className={`${FLODESK_ROOT_CLASS}__label fd-form-label`}
                     >
                       <div>
                         <div>Business Name</div>
@@ -1062,20 +1064,20 @@ export default function FlodeskConsultationForm() {
                     </label>
                   </div>
 
-                  <div className="ff-6a115b2366673b0f9f1163dc__field fd-form-group">
+                  <div className={`${FLODESK_ROOT_CLASS}__field fd-form-group`}>
                     <input
-                      id="ff-6a115b2366673b0f9f1163dc-ZdvAXh9EoM"
-                      className="ff-6a115b2366673b0f9f1163dc__control fd-form-control"
+                      id={`ff-${FLODESK_FORM_ID}-shw0jBBgn4`}
+                      className={`${FLODESK_ROOT_CLASS}__control fd-form-control`}
                       type="text"
                       maxLength={255}
-                      name="fields.websiteFacebookPageLink"
+                      name="fields.websiteOrFacebook"
                       placeholder="Website or Facebook Page Link"
-                      data-ff-tab="fields.websiteFacebookPageLink:fields.businessName:submit"
+                      data-ff-tab="fields.websiteOrFacebook:fields.businessName:submit"
                       required
                     />
                     <label
-                      htmlFor="ff-6a115b2366673b0f9f1163dc-ZdvAXh9EoM"
-                      className="ff-6a115b2366673b0f9f1163dc__label fd-form-label"
+                      htmlFor={`ff-${FLODESK_FORM_ID}-shw0jBBgn4`}
+                      className={`${FLODESK_ROOT_CLASS}__label fd-form-label`}
                     >
                       <div>
                         <div>Website or Facebook Page Link</div>
@@ -1086,10 +1088,10 @@ export default function FlodeskConsultationForm() {
                   <input type="text" maxLength={255} name="confirm_email_address" style={{ display: "none" }} />
                 </div>
 
-                <div className="ff-6a115b2366673b0f9f1163dc__footer" data-ff-el="footer">
+                <div className={`${FLODESK_ROOT_CLASS}__footer`} data-ff-el="footer">
                   <button
                     type="submit"
-                    className="ff-6a115b2366673b0f9f1163dc__button fd-btn"
+                    className={`${FLODESK_ROOT_CLASS}__button fd-btn`}
                     data-ff-el="submit"
                     data-ff-tab="submit"
                   >
@@ -1099,16 +1101,16 @@ export default function FlodeskConsultationForm() {
                   </button>
                 </div>
               </div>
-              <div className="ff-6a115b2366673b0f9f1163dc__success fd-form-success" data-ff-el="success">
-                <div className="ff-6a115b2366673b0f9f1163dc__success-message">
+              <div className={`${FLODESK_ROOT_CLASS}__success fd-form-success`} data-ff-el="success">
+                <div className={`${FLODESK_ROOT_CLASS}__success-message`}>
                   <div>
                     <div>
-                      <div data-paragraph="true">Got it! Check your inbox for an email to confirm your subscription.</div>
+                      <div data-paragraph="true">Thank you for subscribing!</div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="ff-6a115b2366673b0f9f1163dc__error fd-form-error" data-ff-el="error" />
+              <div className={`${FLODESK_ROOT_CLASS}__error fd-form-error`} data-ff-el="error" />
             </form>
           </div>
         </div>

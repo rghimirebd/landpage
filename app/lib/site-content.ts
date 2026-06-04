@@ -1,15 +1,14 @@
 export const siteContent = {
   brandName: "Rabindra Digital",
   headline: "Struggling to get more customers?",
-  subheadline: "Get a FREE PDF Guide & a FREE 1:1 Marketing Consultation Call",
+  subheadline: "Get a FREE 1:1 Digital Marketing Consultation Call",
   descriptionLines: [
-    "The PDF Guide will right away show you 5 marketing mistakes that are quietly killing your sales.",
-    "And, in the 45-minute call, I'll understand your business and give you a simple digital marketing plan to help you get more leads, customers, and sales."
+    "In the 45-60 minute call, I'll understand your business and give you a simple digital marketing plan to help you get more leads, customers, and sales."
   ],
   consultationLabel: "Free 1:1 Digital Marketing Consultation for Nepal-Based Business Owners",
-  ctaText: "Download Free PDF Guide",
+  ctaText: "Book Your Free Consultation Call",
   formHeading: "Book Your FREE 1:1 Consultation Call",
-  formDescription: "Fill up the form below and we'll contact you with the next steps.",
+  formDescription: "",
   thankYouHeading: "Wait... watch the video before you go",
   thankYouDescription: "Before your consultation, please watch this short video so you know what to do next.",
   videoUrl: "https://vimeo.com/1195006957?fl=ip&fe=ec",
@@ -30,10 +29,9 @@ export const solutionPoints = [
 ];
 
 export const consultationSteps = [
-  "Fill up the form with your business details.",
-  "Receive an email with the FREE PDF guide.",
-  "Click on the appointment link to schedule your consultation.",
-  "Fill the appointment form and choose a day and time that works for you.",
+  "Book your consultation call providing basic details",
+  "Receive an email with instructions on setting your appointment.",
+  "Fill the appointment form and choose a day and time for the appointment.",
   "Join the 1:1 consultation call.",
   "Get your customized digital marketing plan for FREE."
 ];

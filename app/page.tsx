@@ -48,10 +48,7 @@ export default function HomePage() {
           </p>
           <div className="mx-auto mt-5 max-w-3xl space-y-3 text-base leading-8 text-brand-charcoal/80 sm:text-lg">
             <p>
-              The PDF Guide will right away show you 5 marketing mistakes that are quietly killing your sales.
-            </p>
-            <p>
-              And, in the 45-minute call, I&apos;ll understand your business and give you a simple digital marketing
+              In the 45-60 minute call, I&apos;ll understand your business and give you a simple digital marketing
               plan to help you get more leads, customers, and sales.
             </p>
           </div>
@@ -149,7 +146,7 @@ export default function HomePage() {
             href="#consultation-form"
             className="inline-flex min-h-14 items-center justify-center rounded-full bg-brand-gold px-8 py-4 text-base font-semibold text-brand-charcoal shadow-[0_18px_40px_rgba(224,177,76,0.28)] transition hover:-translate-y-0.5 hover:bg-brand-gold-soft"
           >
-            Download Free PDF Guide
+            Book Your Free Consultation Call
           </a>
         </div>
       </section>
@@ -177,11 +174,13 @@ export default function HomePage() {
           <div className="rounded-[2rem] bg-brand-charcoal p-7 text-white shadow-[0_30px_100px_rgba(18,18,18,0.22)] sm:p-9">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-brand-gold">Book Your Call</p>
             <h2 className="mt-4 font-display text-3xl leading-tight sm:text-4xl">{siteContent.formHeading}</h2>
-            <p className="mt-4 text-base leading-7 text-white/72 sm:text-lg">{siteContent.formDescription}</p>
+            {siteContent.formDescription ? (
+              <p className="mt-4 text-base leading-7 text-white/72 sm:text-lg">{siteContent.formDescription}</p>
+            ) : null}
 
             <div className="mt-8 space-y-4">
               {[
-                "Get the FREE PDF guide in your inbox after submitting.",
+                "Fill up the form and we'll contact you with the next steps.",
                 "Schedule your appointment from the next-step link you receive."
               ].map((item) => (
                 <div key={item} className="flex gap-4 rounded-[1.4rem] border border-white/10 bg-white/[0.06] p-4">
