@@ -11,7 +11,7 @@ export const siteContent = {
   formDescription: "",
   thankYouHeading: "Wait... watch the video before you go",
   thankYouDescription: "Before your consultation, please watch this short video so you know what to do next.",
-  videoUrl: "https://vimeo.com/1195006957?fl=ip&fe=ec",
+  videoUrl: "https://vimeo.com/1198382007?share=copy&fl=sv&fe=ci",
   whatsappUrl: "https://wa.me/message/PEYQ6X5U54FXM1"
 };
 

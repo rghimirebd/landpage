@@ -7,6 +7,7 @@ const FLODESK_ROOT_CLASS = "ff-6a20243e33e01d1f11e96740";
 const FLODESK_FORM_ID = "6a20243e33e01d1f11e96740";
 const FLODESK_FONT_PRELOAD = "https://assets.flodesk.com/flodesk-sans.css";
 const LEGACY_FLODESK_ROOT_CLASS = "ff-6a115b2366673b0f9f1163dc";
+const CTA_BUTTON_LABEL = "Book Your FREE Consultation Call";
 
 const flodeskStyles = `
   [data-ff-el="root"].ff-6a115b2366673b0f9f1163dc *,
@@ -715,6 +716,12 @@ const flodeskStyles = `
 
   [data-ff-el="root"].ff-6a115b2366673b0f9f1163dc .ff-6a115b2366673b0f9f1163dc__button [data-draw-element="editable"] {
     min-width: 10px;
+    font-size: 0;
+  }
+
+  [data-ff-el="root"].ff-6a115b2366673b0f9f1163dc .ff-6a115b2366673b0f9f1163dc__button [data-draw-element="editable"]::after {
+    content: "Book Your FREE Consultation Call";
+    font-size: 16px;
   }
 
   @media (max-width: 767px) {
@@ -898,9 +905,34 @@ function ensureFlodeskAssets() {
   }
 }
 
+function syncFlodeskButtonLabel() {
+  const label = document.querySelector(
+    `.${FLODESK_ROOT_CLASS} [data-ff-el="submit"] [data-draw-element="editable"]`
+  );
+
+  if (label && label.textContent !== CTA_BUTTON_LABEL) {
+    label.textContent = CTA_BUTTON_LABEL;
+  }
+}
+
 export default function FlodeskConsultationForm() {
   useEffect(() => {
     ensureFlodeskAssets();
+    syncFlodeskButtonLabel();
+
+    const observer = new MutationObserver(() => {
+      syncFlodeskButtonLabel();
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+      characterData: true,
+    });
+
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
   return (
@@ -1096,7 +1128,7 @@ export default function FlodeskConsultationForm() {
                     data-ff-tab="submit"
                   >
                     <div>
-                      <span data-draw-element="editable">Subscribe</span>
+                      <span data-draw-element="editable">{CTA_BUTTON_LABEL}</span>
                     </div>
                   </button>
                 </div>
